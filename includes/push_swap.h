@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 20:50:40 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/04/22 20:23:51 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/04/25 00:31:12 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,8 @@ typedef struct s_stacks
 	t_list	*stack_b;
 }			t_stacks;
 
+int check_nonvalid_char(char *str);
+int check_duplicated_char(char *str);
+char **process_arguments(char **argv);
 
 #endif
