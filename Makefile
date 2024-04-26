@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 DEBUG = -fsanitize=address -g3
 RM = rm -rf
 
-SRC = main.c parser.c
+SRC = main.c parser.c utils.c
 OBJ_DIR = obj
 OBJ = $(addprefix ${OBJ_DIR}/, ${SRC:%.c=%.o})
 
