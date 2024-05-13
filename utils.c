@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 04:13:21 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/04/26 04:22:48 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:50:49 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	init_stacks(t_stacks **stacks)
 }
 
 
-void	print_stack(t_stacks *stacks)
+void	pushswap_print_stack(t_stacks *stacks)
 {
 	t_node	*node;
 
@@ -49,3 +49,18 @@ t_node	*pushswap_new_node(int number)
 	return (node);
 }
 
+void	pushswap_add_back(t_node **stack_a, t_node *node)
+{
+	t_node	*p_aux;
+
+	p_aux = *stack_a;
+	if (node)
+	{
+		while (p_aux->next != NULL)
+			p_aux = p_aux->next;
+		if (p_aux)
+			p_aux = node;
+		else
+			p_aux->next = node;
+	}
+}

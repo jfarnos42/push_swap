@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 20:50:40 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/04/26 04:41:35 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:42:39 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,10 @@ typedef struct s_stacks
 }			t_stacks;
 
 
-int check_nonvalid_char(char *str);
-int check_duplicated_int(char **split);
-void	init_stacks(t_stacks **stacks);
-t_node	*pushswap_new_node(int number);
-t_stacks *process_arguments(char **argv);
-t_stacks	*char_to_stack(char **array);
+int			check_duplicated_int(char **split);
+void		init_stacks(t_stacks **stacks);
+void		pushswap_add_back(t_node **stack_a, t_node *node);
+t_node		*pushswap_new_node(int number);
+t_stacks	*args_to_stack(int argc, char **argv);
 
 #endif

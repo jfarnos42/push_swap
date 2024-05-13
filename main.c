@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 22:59:45 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/04/26 04:42:18 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/05/13 18:14:06 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ int	main(int argc, char **argv)
 
 	if (main_cheater(argc, argv) == 1)
 		exit(EXIT_FAILURE);
-	stacks = process_arguments(argv);
+	stacks = args_to_stack(argc, argv);
 	if (stacks == NULL)
 		return (1);
+	check_node_data(&stacks);
+
 
 	return (0);
 }
