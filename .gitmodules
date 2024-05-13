@@ -1,3 +1,0 @@
-[submodule "includes/Libft"]
-	path = includes/Libft
-	url = git@github.com:jfarnos42/Libft.git
