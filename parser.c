@@ -6,49 +6,55 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 17:30:13 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/05/16 20:51:39 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/05/27 23:27:26 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-t_stacks	*args_to_stack(char *argv)
-{
-	t_node		*node;
-	t_stacks	*stacks;
-	
-	node = pushswap_new_node(argv);
-		if (node == NULL)
-			exit(EXIT_FAILURE);
-	pushswap_add_back(stacks->stack_a, node);
-	free(node);
-	
-	return (stacks);
-}
-
-int	*check_nonvalid_char(char *argv)
+int	check_nonvalid_char(char *argv)
 {
 	int	i;
 
 	i = 0;
 	while (argv[i])
 	{
-		if (argv[i] == '-' && ft_isdigit(argv[i + 1]) && argv[i - 1] == ' ')
+		if (argv[i] == '-' && argv[i + 1] && ft_isdigit(argv[i + 1]) && (i == 0 || argv[i - 1] == ' '))
 			i++;
 		else if (ft_isdigit(argv[i]))
 			i++;
 		else if (argv[i] == ' ')
 			i++;
 		else
-			return (1);
+		ft_error("Non-valid character has been found.\n");
 	}
 	return (0);
 }
 
-// void check_node_data(t_stacks *stacks)
-//{
-// 1.Check unvalid char && is_all_digits(negative too);
-// 2.Check if multiple characters in a single block
-//              && split new_node();
-// 3.Check if number duplicated(t_stack type);
-//}
+t_node *check_str_format(char *str)
+{
+	t_node *stack;
+	t_node *aux;
+	char **split;
+	int i;
+	
+	if(!str)
+		return(NULL);
+	i = 0;
+	split = ft_split(str, ' ');
+	while (split[i])
+	{
+		if (check_nonvalid_char(split[i]) == 1)
+			return(ft_freematrix(split, i), NULL);
+		else
+		{
+			aux = pushswap_new_node(ft_atoi(split[i]));
+			pushswap_add_last(&stack, aux);
+			if(!stack)
+				return(ft_freematrix(split, i), NULL);
+		}
+		i++;
+		
+	}
+	return (ft_freematrix(split, i), stack);
+}

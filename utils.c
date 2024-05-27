@@ -6,35 +6,23 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 04:13:21 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/05/16 20:50:03 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/05/27 22:36:12 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-void	init_stacks(t_stacks **stacks)
+void ft_error(char *string_error)
 {
-	*stacks = (t_stacks *)malloc(sizeof(t_stacks));
-	if (*stacks == NULL)
-	{
-		write(1, "INIT_STACKS: Memory allocation failed\n", 38);
-		exit(EXIT_FAILURE);
-	}
-	(*stacks)->stack_a = NULL;
-	(*stacks)->stack_b = NULL;
-}
+    int i;
 
-
-void	pushswap_print_stack(t_stacks *stacks)
-{
-	t_node	*node;
-
-	node = stacks->stack_a;
-	while (node)
-	{
-		printf("array: %i\n", node->number);
-		node = node->next;
-	}
+    i = 0;
+    while(string_error[i])
+    {
+        write(1, &string_error[i], 1);
+        i++;
+    }
+    exit(EXIT_FAILURE);
 }
 
 t_node	*pushswap_new_node(int number)
@@ -49,18 +37,43 @@ t_node	*pushswap_new_node(int number)
 	return (node);
 }
 
-void	pushswap_add_back(t_node *stack, t_node *node)
+void	pushswap_add_last(t_node **stack, t_node *node)
 {
 	t_node	*p_aux;
 
-	p_aux = stack;
+	if (*stack == NULL)
+	{
+		*stack = node;
+		return ;
+	}
+	p_aux = *stack;
 	if (node)
 	{
 		while (p_aux->next != NULL)
 			p_aux = p_aux->next;
-		if (p_aux)
-			p_aux = node;
-		else
-			p_aux->next = node;
+		p_aux->next = node;
+	}
+}
+void check_duplicated_int(t_node *stack)
+{
+	t_node *current;
+	t_node	*runner;
+	
+	if(!stack)
+		ft_error("List is EMPTY!\nTerminating...\n");
+	current = stack;
+	while (current != NULL)
+	{
+		runner = current->next;
+		while(runner != NULL)
+		{
+			if (current->number == runner->number)
+			{
+				free(stack);
+				ft_error("Duplicated INT found\nTerminating...\n");
+			}
+			runner = runner->next;
+		}
+		current = current->next;
 	}
 }

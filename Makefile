@@ -27,8 +27,8 @@ ${NAME}: ${OBJ}
 	@echo " |_|     \____/|_____/|_|  |_| |_____/    \/  \/_/    \_\_|     "
 	@echo "================================================================"
 	@echo
-	@echo "${YELLOW}Compiling Libft...${END_LINE}"
-	@${MAKE} all -C ./includes/Libft
+	@echo "$(YELLOW)Compiling Libft...$(END_LINE)"
+	@${MAKE} -C ./includes/Libft
 	@echo "$(GREEN)Libft successfully compiled.$(END_LINE)"
 	@echo "$(YELLOW)Compiling ${NAME}...$(END_LINE)"
 	@${CC} ${CFLAGS} ${OBJ} ./includes/Libft/libft.a -o $(NAME)
@@ -41,12 +41,12 @@ ${OBJ_DIR}/%.o: %.c
 
 clean:
 	@echo "================================================================"
-	@echo "${YELLOW}Cleaning Libft dependencies...${END_LINE}"
-	@${MAKE} -C ./includes/Libft fclean
+	@echo "$(YELLOW)Cleaning Libft...$(END_LINE)"
+	@${MAKE} -C ./includes/Libft/ fclean
+	@echo "$(GREEN)Libft object files removed.$(END_LINE)"
 	@echo "${YELLOW}Cleaning ${NAME}...${END_LINE}"
 	@$(RM) $(OBJ_DIR)
 	@echo "$(GREEN)${NAME} successfully removed from system.$(END_LINE)"
-
 fclean: clean
 	@$(RM) $(NAME)
 
