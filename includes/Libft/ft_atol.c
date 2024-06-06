@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 02:46:32 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/03/14 01:29:43 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/07 00:55:08 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@ int	check_overflow(long result, int sign, int digit)
 
 const char	*skip_whitespace(const char *str)
 {
-	while (*str == ' ')
-		str++;
+	int i;
+
+	i = 0;
+	while (ft_isspace(str[i]))
+		i++;
 	return (str);
 }
 

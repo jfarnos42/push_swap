@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:01:55 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/05/27 23:14:53 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/07 00:51:18 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,8 +127,11 @@ int		ft_lstsize(t_list *lst);
 
 int		ft_strcmp(const char *str1, const char *str2);
 
+int ft_isspace(char c);
+
 double	ft_atof(const char *str);
 
 long	ft_atol(const char *str);
+
 
 #endif
