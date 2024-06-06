@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 17:30:13 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/05/27 23:27:26 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/06 22:41:09 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,30 +31,31 @@ int	check_nonvalid_char(char *argv)
 	return (0);
 }
 
-t_node *check_str_format(char *str)
+t_list *check_str_format(char *str)
 {
-	t_node *stack;
-	t_node *aux;
+	t_list *stack;
+	t_list *aux;
 	char **split;
+	int *value;
 	int i;
 	
 	if(!str)
 		return(NULL);
 	i = 0;
+	stack = NULL;
 	split = ft_split(str, ' ');
 	while (split[i])
 	{
 		if (check_nonvalid_char(split[i]) == 1)
 			return(ft_freematrix(split, i), NULL);
-		else
-		{
-			aux = pushswap_new_node(ft_atoi(split[i]));
-			pushswap_add_last(&stack, aux);
-			if(!stack)
-				return(ft_freematrix(split, i), NULL);
-		}
+		value = ft_calloc(1, sizeof(int));
+		*value = ft_atoi(split[i]);
+		aux = ft_lstnew((void *)value);
+		ft_lstadd_back(&stack, aux);
+		if(!stack)
+			return(ft_freematrix(split, i), NULL);
 		i++;
-		
 	}
+	aux = NULL;
 	return (ft_freematrix(split, i), stack);
 }

@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 04:13:21 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/05/27 22:36:12 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/06 22:44:26 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,51 +25,22 @@ void ft_error(char *string_error)
     exit(EXIT_FAILURE);
 }
 
-t_node	*pushswap_new_node(int number)
+void check_duplicated_int(t_list *stack)
 {
-	t_node	*node;
-
-	node = (t_node *)malloc(sizeof(t_node));
-	if (node == NULL)
-		return (NULL);
-	node->number = number;
-	node->next = NULL;
-	return (node);
-}
-
-void	pushswap_add_last(t_node **stack, t_node *node)
-{
-	t_node	*p_aux;
-
-	if (*stack == NULL)
-	{
-		*stack = node;
-		return ;
-	}
-	p_aux = *stack;
-	if (node)
-	{
-		while (p_aux->next != NULL)
-			p_aux = p_aux->next;
-		p_aux->next = node;
-	}
-}
-void check_duplicated_int(t_node *stack)
-{
-	t_node *current;
-	t_node	*runner;
+	t_list *current;
+	t_list	*runner;
 	
 	if(!stack)
 		ft_error("List is EMPTY!\nTerminating...\n");
 	current = stack;
-	while (current != NULL)
+	while (current)
 	{
 		runner = current->next;
-		while(runner != NULL)
+		while(runner)
 		{
-			if (current->number == runner->number)
+			if (*((int *)current->content) == *((int *)runner->content))
 			{
-				free(stack);
+				ft_lstclear(&stack, &free);
 				ft_error("Duplicated INT found\nTerminating...\n");
 			}
 			runner = runner->next;
