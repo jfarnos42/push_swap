@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 04:13:21 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/06/17 05:01:36 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/17 07:38:30 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,15 @@ void print_list(t_list *stack)
     }
 }
 
+void check_int_range(long value, t_list *stack)
+{
+		if (value < -2147483648 || value > 2147483647)
+		{
+			ft_lstclear(&stack, &free);
+			ft_error("Error\n");
+		}
+}
+
 void check_duplicated_int(t_list *stack)
 {
 	t_list *current;
@@ -59,11 +68,7 @@ void check_duplicated_int(t_list *stack)
 			}
 			runner = runner->next;
 		}
-		if (value < -2147483648 || value > 2147483647)
-		{
-			ft_lstclear(&stack, &free);
-			ft_error("Error\n");
-		}
+		check_int_range(value, stack);
 		current = current->next;
 	}
 }

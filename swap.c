@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 04:33:30 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/06/17 05:37:31 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/17 07:52:06 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ void sb(t_list *stack_b)
 
 void ss(t_list *stack_a, t_list *stack_b)
 {
-    sa(stack_a);
-    sb(stack_b);
+    if(stack_a && stack_a->next != NULL)
+        sa(stack_a);
+    if(stack_b && stack_b->next != NULL)
+        sb(stack_b);
 }
 

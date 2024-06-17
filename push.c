@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 04:33:19 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/06/17 05:58:59 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/17 07:56:00 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void pb(t_list **stack_b, t_list **stack_a)
 {
     t_list *temp;
 
-    if (stack_b && *stack_b)
+    if (stack_a && *stack_a)
     {
         temp = *stack_a;
         *stack_a = (*stack_a)->next;
