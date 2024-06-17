@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 04:13:21 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/06/06 22:44:26 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/17 05:01:36 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,44 @@ void ft_error(char *string_error)
     exit(EXIT_FAILURE);
 }
 
+void print_list(t_list *stack)
+{
+    t_list *current;
+    
+    current = stack;
+    while (current)
+    {
+        printf("%i\n", *(int *)current->content);
+        current = current->next;
+    }
+}
+
 void check_duplicated_int(t_list *stack)
 {
 	t_list *current;
 	t_list	*runner;
+	long	value;
 	
 	if(!stack)
-		ft_error("List is EMPTY!\nTerminating...\n");
+		ft_error("Error\n");
 	current = stack;
 	while (current)
 	{
+		value = *((long *)current->content);
 		runner = current->next;
 		while(runner)
 		{
-			if (*((int *)current->content) == *((int *)runner->content))
+			if (*((long *)current->content) == *((long *)runner->content))
 			{
 				ft_lstclear(&stack, &free);
-				ft_error("Duplicated INT found\nTerminating...\n");
+				ft_error("Error\n");
 			}
 			runner = runner->next;
+		}
+		if (value < -2147483648 || value > 2147483647)
+		{
+			ft_lstclear(&stack, &free);
+			ft_error("Error\n");
 		}
 		current = current->next;
 	}

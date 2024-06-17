@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 17:30:13 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/06/06 22:41:09 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/13 21:45:28 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	check_nonvalid_char(char *argv)
 		else if (argv[i] == ' ')
 			i++;
 		else
-		ft_error("Non-valid character has been found.\n");
+			ft_error("Error\n");
 	}
 	return (0);
 }
@@ -36,7 +36,7 @@ t_list *check_str_format(char *str)
 	t_list *stack;
 	t_list *aux;
 	char **split;
-	int *value;
+	long *value;
 	int i;
 	
 	if(!str)
@@ -48,8 +48,8 @@ t_list *check_str_format(char *str)
 	{
 		if (check_nonvalid_char(split[i]) == 1)
 			return(ft_freematrix(split, i), NULL);
-		value = ft_calloc(1, sizeof(int));
-		*value = ft_atoi(split[i]);
+		value = ft_calloc(1, sizeof(long *));
+		*value = ft_atol(split[i]);
 		aux = ft_lstnew((void *)value);
 		ft_lstadd_back(&stack, aux);
 		if(!stack)
