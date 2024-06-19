@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:01:55 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/06/13 21:08:23 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:13:53 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,10 @@
 # include <unistd.h>
 # include <limits.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE BUFSIZ
-# endif
-
-# if BUFFER_SIZE > 9223372036854775806L /*Double long*/
-#  undef BUFFER_SIZE
-#  define BUFFER_SIZE 10
-# endif
-
 typedef struct s_list
 {
 	void			*content;
+	int				index;
 	struct s_list	*next;
 }	t_list;
 
@@ -127,11 +119,10 @@ int		ft_lstsize(t_list *lst);
 
 int		ft_strcmp(const char *str1, const char *str2);
 
-int ft_isspace(char c);
+int		ft_isspace(char c);
 
 double	ft_atof(const char *str);
 
 long	ft_atol(const char *str);
-
 
 #endif

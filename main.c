@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 22:59:45 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/06/17 08:08:44 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/19 19:05:23 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,6 @@ static t_list *generate_list(char **argv, t_list *stack_a)
 	return(stack);
 }
 
-void push_swap(t_list *stack_a, t_list *stack_b)
-{
-    //  it's show time
-    
-    
-    //  *rie en japones*
-}
-
 int	main(int argc, char **argv)
 {
     t_list *stack_a;
@@ -48,12 +40,13 @@ int	main(int argc, char **argv)
 
     if (argc <= 1)
         return (1);
-    
+        
     (void)stack_b;
     stack_a = NULL;
     stack_a = generate_list(argv, stack_a);
-    push_swap(&stack_a, &stack_b);
-    print_list(stack_a);
+    sort_3(&stack_a);
+    
+    printf("%i\n", is_sorted(stack_a));
 
     ft_lstclear(&stack_a, &free);
     return (0);
