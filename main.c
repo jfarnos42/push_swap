@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 22:59:45 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/06/19 19:05:23 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/19 22:01:43 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,14 @@ int	main(int argc, char **argv)
     if (argc <= 1)
         return (1);
         
-    (void)stack_b;
+    stack_b = NULL;
     stack_a = NULL;
     stack_a = generate_list(argv, stack_a);
-    sort_3(&stack_a);
-    
-    printf("%i\n", is_sorted(stack_a));
+    print_list(stack_a);
+    printf("\n\n");
+    sort_5(&stack_a, &stack_b);
+    print_list(stack_a);
+    printf("\n%i\n", is_sorted(stack_a));
 
     ft_lstclear(&stack_a, &free);
     return (0);

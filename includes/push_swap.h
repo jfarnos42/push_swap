@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 20:50:40 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/06/19 18:25:04 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/19 20:55:39 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void    rrb(t_list **stack_b);
 void    rrr(t_list **stack_a, t_list **stack_b);
 t_list  *check_str_format(char *str);
 void    sort_3(t_list **stack_a);
+void    sort_5(t_list **stack_a, t_list **stack_b);
 int     is_sorted(t_list *stack_a);
 
 #endif
