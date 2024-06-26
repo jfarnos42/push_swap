@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 20:50:40 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/06/19 20:55:39 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/24 22:34:50 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 # include "./Libft/libft.h"
 
 int		check_nonvalid_char(char *argv);
+int     is_sorted(t_list *stack_a);
+int     do_you_know_the_way(t_list *stack, int content);
+int     get_min_value(t_list *stack_a);
 void	ft_error(char *string_error);
 void 	check_duplicated_int(t_list *stack);
 void    print_list(t_list *stack);
@@ -37,9 +40,10 @@ void    rr(t_list **stack_a, t_list **stack_b);
 void    rra(t_list **stack_a);
 void    rrb(t_list **stack_b);
 void    rrr(t_list **stack_a, t_list **stack_b);
-t_list  *check_str_format(char *str);
+void    sort_2(t_list **stack_a);
 void    sort_3(t_list **stack_a);
 void    sort_5(t_list **stack_a, t_list **stack_b);
-int     is_sorted(t_list *stack_a);
+void    push_swap(t_list **stack_a, t_list **stack_b);
+t_list  *check_str_format(char *str);
 
 #endif

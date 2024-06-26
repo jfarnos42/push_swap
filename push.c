@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 04:33:19 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/06/17 07:56:00 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/24 23:11:14 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void pa(t_list **stack_a, t_list **stack_b)
         temp->next = NULL;
         ft_lstadd_front(stack_a, temp);
     }
+    write(1, "pa\n", 3);
 }
 
 void pb(t_list **stack_b, t_list **stack_a)
@@ -36,5 +37,6 @@ void pb(t_list **stack_b, t_list **stack_a)
         temp->next = NULL;
         ft_lstadd_front(stack_b, temp);
     }
+    write(1, "pb\n", 3);
 }
 

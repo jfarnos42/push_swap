@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 04:35:50 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/06/17 06:56:40 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/24 23:11:51 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void rra(t_list **stack_a)
     second_last->next = NULL;
 
     ft_lstadd_front(stack_a, last);
+    write(1, "rra\n", 4);
 }
 
 void rrb(t_list **stack_b)
@@ -46,6 +47,7 @@ void rrb(t_list **stack_b)
     second_last->next = NULL;
 
     ft_lstadd_front(stack_b, last);
+    write(1, "rrb\n", 4);
 }
 
 void rrr(t_list **stack_a, t_list **stack_b)
@@ -56,4 +58,5 @@ void rrr(t_list **stack_a, t_list **stack_b)
         return ;
     rra(stack_a);
     rrb(stack_b);
+    write(1, "rrr\n", 4);
 }

@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 22:59:45 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/06/19 22:01:43 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/24 23:10:05 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,12 @@ int	main(int argc, char **argv)
 	t_list *stack_b;
 
     if (argc <= 1)
-        return (1);
-        
+        ft_error("Error\n");
     stack_b = NULL;
     stack_a = NULL;
     stack_a = generate_list(argv, stack_a);
-    print_list(stack_a);
-    printf("\n\n");
-    sort_5(&stack_a, &stack_b);
-    print_list(stack_a);
-    printf("\n%i\n", is_sorted(stack_a));
+
+    push_swap(&stack_a, &stack_b);
 
     ft_lstclear(&stack_a, &free);
     return (0);

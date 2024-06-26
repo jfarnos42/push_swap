@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 04:13:21 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/06/17 07:38:30 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/06/26 03:02:31 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void ft_error(char *string_error)
     i = 0;
     while(string_error[i])
     {
-        write(1, &string_error[i], 1);
+        write(2, &string_error[i], 1);
         i++;
     }
     exit(EXIT_FAILURE);
