@@ -6,46 +6,45 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 22:59:45 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/06/24 23:10:05 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/08 10:36:06 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-static t_list *generate_list(char **argv, t_list *stack_a)
+static t_list	*generate_list(char **argv, t_list *stack_a)
 {
-	t_list *stack;
-	t_list *new_node;
-    int i;
+	t_list	*stack;
+	t_list	*new_node;
+	int		i;
 
 	stack = stack_a;
-	if(!argv)
-        exit(EXIT_FAILURE);
+	if (!argv)
+		exit(EXIT_FAILURE);
 	i = 0;
-    while (argv[++i])
+	while (argv[++i])
 	{
-        new_node = check_str_format(argv[i]);
-        if (new_node)
-           ft_lstadd_back(&stack, new_node);
-    }
-    new_node = NULL;
-    check_duplicated_int(stack);
-	return(stack);
+		new_node = check_str_format(argv[i]);
+		if (new_node)
+			ft_lstadd_back(&stack, new_node);
+	}
+	new_node = NULL;
+	check_duplicated_int(stack);
+	return (stack);
 }
 
 int	main(int argc, char **argv)
 {
-    t_list *stack_a;
-	t_list *stack_b;
+	t_list	*stack_a;
+	t_list	*stack_b;
 
-    if (argc <= 1)
-        ft_error("Error\n");
-    stack_b = NULL;
-    stack_a = NULL;
-    stack_a = generate_list(argv, stack_a);
-
-    push_swap(&stack_a, &stack_b);
-
-    ft_lstclear(&stack_a, &free);
-    return (0);
+	if (argc <= 1)
+		ft_error("Error\n");
+	stack_b = NULL;
+	stack_a = NULL;
+	stack_a = generate_list(argv, stack_a);
+	push_swap(&stack_a, &stack_b);
+	//print_list(stack_a);
+	ft_lstclear(&stack_a, &free);
+	return (0);
 }

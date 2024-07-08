@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strappend.c                                     :+:      :+:    :+:   */
+/*   ft_lstdel_node_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 03:39:55 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/07/06 11:19:25 by jfarnos-         ###   ########.fr       */
+/*   Created: 2024/07/06 14:04:30 by jfarnos-          #+#    #+#             */
+/*   Updated: 2024/07/08 02:11:03 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strappend(char *chain, char *block)
+t_list	*ft_lstdel_node(t_list **lst, int value)
 {
-	char	*aux;
+	t_list	*head;
+	t_list	*runner;
+	t_list	*target;
 
-	aux = NULL;
-	if (chain)
+	head = *lst;
+	if (!head || !head->content)
+		return (NULL);
+	runner = head;
+	while (runner && runner->next)
 	{
-		aux = chain;
-		free(chain);
-		return (ft_strjoin(aux, block));
+		if (*(int *)runner->content == value)
+		{
+			target = runner;
+			runner = runner->next;
+			ft_lstdelone(target, &free);
+			ft_lstadd_back(&head, runner);
+			return (head);
+		}
+		runner = runner->next;
 	}
-	return (ft_strdup(block));
+	return (head);
 }

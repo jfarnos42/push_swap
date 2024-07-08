@@ -4,7 +4,9 @@ CFLAGS = -Wall -Wextra -Werror
 DEBUG = -fsanitize=address -g3
 RM = rm -rf
 
-SRC = main.c parser.c utils.c push.c swap.c rotate.c reverse.c push_swap.c
+SRC =	main.c parser.c utils.c push.c swap.c rotate.c reverse.c push_swap.c \
+		sort_complex.c sort_utils.c sort_3.c
+
 OBJ_DIR = obj
 OBJ = $(addprefix ${OBJ_DIR}/, ${SRC:%.c=%.o})
 

@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:35:51 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/02/13 23:55:33 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/06 11:19:15 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_memcpy(dst + ft_strlen(s1), s2, ft_strlen(s2) + 1);
 	return (dst);
 }
-

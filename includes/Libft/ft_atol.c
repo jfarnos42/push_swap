@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 02:46:32 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/06/07 00:55:08 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/06 11:19:35 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,14 @@ int	check_overflow(long result, int sign, int digit)
 				&& digit > LONG_MAX % 10)))
 		return (1);
 	else if (sign == -1 && ((result > (LONG_MAX + sign) / 10)
-				|| (result == (LONG_MAX + sign) / 10 && digit > LONG_MAX % 10
-					+ 1)))
+			|| (result == (LONG_MAX + sign) / 10 && digit > LONG_MAX % 10 + 1)))
 		return (-1);
 	return (0);
 }
 
 const char	*skip_whitespace(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (ft_isspace(str[i]))
@@ -81,4 +80,3 @@ long	ft_atol(const char *str)
 	sign = extract_sign(&str);
 	return (parse_digits(str, sign) * sign);
 }
-
