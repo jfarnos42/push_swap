@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 20:50:40 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/07/08 07:56:12 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/08 13:45:20 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		get_min_value(t_list *stack_a);
 int		get_max_value(t_list *stack_a);
 int		get_direction(t_list *stack, int content);
 int		get_chunk_size(t_list *stack_a);
+int     ft_argc(char **argv);
 void	sort_chunks(t_list **stack_a, t_list **stack_b);
 void	ft_error(char *string_error);
 void	check_duplicated_int(t_list *stack);

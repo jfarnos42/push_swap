@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 10:00:56 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/07/08 10:56:35 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:51:49 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,17 @@ void	sort_chunk_array(char **chunk, int chunk_size)
 	}
 }
 
+void	bring_to_top(t_list **stack, int value)
+{
+	while (get_direction(*stack, value) != 0)
+	{
+		if (get_direction(*stack, value) > 0)
+			rb(stack);
+		else
+			rrb(stack);
+	}
+}
+
 char	**create_chunk(t_list *stack_a, int chunk_size)
 {
 	t_list	*temp;
@@ -44,7 +55,7 @@ char	**create_chunk(t_list *stack_a, int chunk_size)
 
 	chunk = (char **)malloc((chunk_size + 1) * sizeof(char *));
 	if (!chunk)
-		ft_error("Memory allocation error\n");
+		ft_error("Error\n");
 	temp = stack_a;
 	i = 0;
 	while (temp && i < chunk_size)
@@ -68,7 +79,7 @@ void	sort_chunks(t_list **stack_a, t_list **stack_b)
 	chunk = create_chunk(*stack_a, chunk_size);
 	sort_chunk_array(chunk, chunk_size);
 	i = 0;
-	while (chunk[i] && ft_lstsize(*stack_a) > 3)
+	while (chunk[i] && ft_lstsize(*stack_a) != 0)
 	{
 		value = ft_atoi(chunk[i]);
 		while (*stack_a && *(int *)(*stack_a)->content != value)
@@ -84,48 +95,15 @@ void	sort_chunks(t_list **stack_a, t_list **stack_b)
 	ft_freematrix(chunk, chunk_size);
 }
 
-int	find_closest_position(t_list *stack_a, int value)
-{
-	t_list	*current;
-	int		position;
-	int		found;
-
-	position = 0;
-	found = 0;
-	current = stack_a;
-	while (current)
-	{
-		if (*(int *)current->content<value
-			&&*(int *)current->next->content> value)
-		{
-			found = 1;
-			break ;
-		}
-		position++;
-		current = current->next;
-	}
-	if (!found)
-		return (0);
-	if (position <= ft_lstsize(stack_a) / 2)
-		return (1);
-	return (-1);
-}
-
 void	merge_chunks(t_list **stack_a, t_list **stack_b)
 {
-	int	value;
-
-	while (!is_sorted(*stack_a) && (*stack_b))
+	int value;
+	
+	while(ft_lstsize(*stack_b) != 0 || (!is_sorted(*stack_a) && ft_lstsize(*stack_b) != 0))
 	{
-		value = *(int *)(*stack_b)->content;
-		while (*stack_b)
-		{
-			if (find_closest_position(*stack_a, value) > 0)
-				ra(stack_a);
-			else
-				rra(stack_a);
-		}
-		pa(stack_a, stack_b);
+		value = get_max_value(*stack_b);
+		bring_to_top(stack_b, value);
+		pa(stack_a, stack_b);	
 	}
 }
 
@@ -139,9 +117,8 @@ void	sort_complex(t_list **stack_a, t_list **stack_b)
 		ft_error("Error\n");
 	if (!is_sorted(*stack_a) && !(*stack_b))
 	{
-		while (ft_lstsize(*stack_a) > 5)
+		while (ft_lstsize(*stack_a) != 0)
 			sort_chunks(stack_a, stack_b);
-		sort_3(stack_a);
 		merge_chunks(stack_a, stack_b);
 	}
 	return ;

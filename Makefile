@@ -1,7 +1,7 @@
 NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-DEBUG = -fsanitize=address -g3
+DEBUG = -g3 -fsanitize=address
 RM = rm -rf
 
 SRC =	main.c parser.c utils.c push.c swap.c rotate.c reverse.c push_swap.c \
