@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:10:48 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/07/08 05:29:46 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/09 23:57:30 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	sort_5(t_list **stack_a, t_list **stack_b)
 {
 	if (!stack_a || !*stack_a)
 		return ;
-	while (ft_lstsize(*stack_a) > 3)
+	while (!is_sorted(*stack_a) && ft_lstsize(*stack_a) > 3)
 	{
 		while (get_direction(*stack_a, get_min_value(*stack_a)) != 0)
 		{
@@ -45,8 +45,8 @@ void	sort_5(t_list **stack_a, t_list **stack_b)
 		pb(stack_b, stack_a);
 	}
 	sort_3(stack_a);
-	pa(stack_a, stack_b);
-	pa(stack_a, stack_b);
+	while(ft_lstsize(*stack_b) > 0)
+		pa(stack_a, stack_b);
 }
 
 void	sort_2(t_list **stack_a)

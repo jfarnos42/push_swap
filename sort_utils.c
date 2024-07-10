@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 12:19:59 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/07/08 17:02:30 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/10 09:50:44 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_sorted(t_list *stack_a)
 	temp = stack_a;
 	if (!temp || !temp->content)
 		return (FALSE);
-	while (temp->next != NULL)
+	while (temp->next != NULL && ft_lstsize(stack_a) > 1)
 	{
 		if (*(int *)temp->content > *(int *)temp->next->content)
 			return (FALSE);
@@ -35,7 +35,7 @@ int	get_min_value(t_list *stack_a)
 
 	temp = stack_a;
 	if (!temp)
-		ft_error("Error\n");
+		ft_error("Error4\n");
 	min_value = *(int *)temp->content;
 	while (temp && temp->next)
 	{
@@ -53,7 +53,7 @@ int	get_max_value(t_list *stack_a)
 
 	temp = stack_a;
 	if (!temp)
-		ft_error("Error\n");
+		ft_error("Error5\n");
 	max_value = *(int *)temp->content;
 	while (temp && temp->next)
 	{
@@ -73,7 +73,7 @@ int	get_direction(t_list *stack, int content)
 	i = 0;
 	temp = stack;
 	if (!temp)
-		ft_error("Error\n");
+		ft_error("Error6\n");
 	while (temp && *(int *)temp->content != content && temp->next != NULL)
 	{
 		temp = temp->next;
@@ -88,19 +88,19 @@ int	get_direction(t_list *stack, int content)
 int	get_chunk_size(t_list *stack_a)
 {
 	if (ft_lstsize(stack_a) <= 20)
-		return (5);
+		return (4);
 	else if (ft_lstsize(stack_a) <= 50)
-		return (10);
+		return (6);
 	else if (ft_lstsize(stack_a) <= 100)
-		return (20);
+		return (7);
 	else if (ft_lstsize(stack_a) <= 200)
-		return (35);
+		return (9);
 	else if (ft_lstsize(stack_a) <= 350)
-		return (42);
+		return (11);
 	else if (ft_lstsize(stack_a) <= 500)
-		return (50);
+		return (13);
 	else if (ft_lstsize(stack_a) <= 700)
-		return (60);
+		return (17);
 	else
-		return (100);
+		return (20);
 }
