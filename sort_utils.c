@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 12:19:59 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/07/10 09:50:44 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/12 19:46:33 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,11 @@ int	get_direction(t_list *stack, int content)
 int	get_chunk_size(t_list *stack_a)
 {
 	if (ft_lstsize(stack_a) <= 20)
-		return (4);
+		return (2);
 	else if (ft_lstsize(stack_a) <= 50)
-		return (6);
+		return (3);
 	else if (ft_lstsize(stack_a) <= 100)
-		return (7);
+		return (8);
 	else if (ft_lstsize(stack_a) <= 200)
 		return (9);
 	else if (ft_lstsize(stack_a) <= 350)
