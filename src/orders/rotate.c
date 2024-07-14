@@ -6,11 +6,11 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 04:35:52 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/07/06 11:26:46 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:04:58 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ra(t_list **stack_a)
 {

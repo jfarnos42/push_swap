@@ -6,11 +6,33 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 04:13:21 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/07/08 07:55:59 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:03:23 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../includes/push_swap.h"
+
+// void	print_list(t_list *stack)
+// {
+// 	t_list	*current;
+
+// 	current = stack;
+// 	while (current)
+// 	{
+// 		printf("%i\n", *(int *)current->content);
+// 		current = current->next;
+// 	}
+// }
+
+// void	print_chunk(char **chunk, int chunk_size)
+// {
+// 	int	i;
+
+// 	for (i = 0; i < chunk_size; i++)
+// 	{
+// 		printf("%s\n", chunk[i]);
+// 	}
+// }
 
 void	ft_error(char *string_error)
 {
@@ -23,28 +45,6 @@ void	ft_error(char *string_error)
 		i++;
 	}
 	exit(EXIT_FAILURE);
-}
-
-void	print_list(t_list *stack)
-{
-	t_list	*current;
-
-	current = stack;
-	while (current)
-	{
-		printf("%i\n", *(int *)current->content);
-		current = current->next;
-	}
-}
-
-void	print_chunk(char **chunk, int chunk_size)
-{
-    int i;
-
-    for (i = 0; i < chunk_size; i++)
-    {
-    	printf("%s\n", chunk[i]);
-    }
 }
 
 void	check_int_range(long value, t_list *stack)
@@ -82,4 +82,3 @@ void	check_duplicated_int(t_list *stack)
 		current = current->next;
 	}
 }
-

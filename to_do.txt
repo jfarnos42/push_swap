@@ -1,9 +1,0 @@
-TODO:
-
-
-1. Tamaño chunk.
-2. pb() por chunks ( menor > mayor). Es decir, chunk[0] = first x numbers from ordene
-3. pa() de manera ordenada.
-    3.1 Buscar mayor de a pila.
-    3.2 bring_to_top_b(); //Para optimizar, if pa(i - 1), pa(i), sa();
-4. repeat step 3 util its empty. 

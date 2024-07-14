@@ -4,8 +4,9 @@ CFLAGS = -Wall -Wextra -Werror
 DEBUG = -g3 -fsanitize=address
 RM = rm -rf
 
-SRC =	main.c parser.c utils.c push.c swap.c rotate.c reverse.c push_swap.c \
-		sort_complex.c sort_utils.c sort_3.c
+SRC =	src/main.c src/parser.c src/utils.c src/push_swap.c src/sort_complex.c \
+		src/sort_utils.c src/sort_3.c src/chunks.c src/magic_tools.c \
+		src/orders/push.c src/orders/swap.c src/orders/rotate.c src/orders/reverse.c
 
 OBJ_DIR = obj
 OBJ = $(addprefix ${OBJ_DIR}/, ${SRC:%.c=%.o})
@@ -19,7 +20,7 @@ END_LINE = \033[0m
 
 all: $(NAME)
 
-${NAME}: ${OBJ}
+$(NAME): $(OBJ)
 	@echo "================================================================"
 	@echo "  _____  _    _  _____ _    _    _______          __     _____  "
 	@echo " |  __ \| |  | |/ ____| |  | |  / ____\ \        / /\   |  __ \ "
@@ -37,7 +38,7 @@ ${NAME}: ${OBJ}
 	@echo "$(GREEN)${NAME} successfully compiled.$(END_LINE)"
 
 ${OBJ_DIR}/%.o: %.c
-	@mkdir -p ${OBJ_DIR}
+	@mkdir -p ${OBJ_DIR}/$(dir $<)
 	@${CC} ${CFLAGS} -c $< -o $@
 	@echo
 
@@ -49,6 +50,7 @@ clean:
 	@echo "${YELLOW}Cleaning ${NAME}...${END_LINE}"
 	@$(RM) $(OBJ_DIR)
 	@echo "$(GREEN)${NAME} successfully removed from system.$(END_LINE)"
+
 fclean: clean
 	@$(RM) $(NAME)
 

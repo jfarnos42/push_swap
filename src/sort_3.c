@@ -6,11 +6,11 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 04:57:29 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/07/08 05:05:41 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:04:05 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	apply_sort_operations(t_list **stack_a, int a, int b, int c)
 {

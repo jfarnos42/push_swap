@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:01:55 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/07/06 20:19:30 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:13:43 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 size_t				ft_strlen(const char *s);
+
+int					ft_argc(char **argv);
 
 int					ft_isalnum(int c);
 

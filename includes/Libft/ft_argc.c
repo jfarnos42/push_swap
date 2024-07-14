@@ -6,18 +6,18 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 13:42:21 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/07/08 13:44:42 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/14 14:47:52 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_argc(char **argv)
+int	ft_argc(char **argv)
 {
-    int     i;
+	int	i;
 
-    i = 0;
-    while(argv[i] != NULL)
-        i++;
-    return (i);
+	i = 0;
+	while (argv[i] != NULL)
+		i++;
+	return (i);
 }

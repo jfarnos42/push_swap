@@ -6,11 +6,11 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:10:48 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/07/09 23:57:30 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:03:35 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void	push_swap(t_list **stack_a, t_list **stack_b)
 {
@@ -45,7 +45,7 @@ void	sort_5(t_list **stack_a, t_list **stack_b)
 		pb(stack_b, stack_a);
 	}
 	sort_3(stack_a);
-	while(ft_lstsize(*stack_b) > 0)
+	while (ft_lstsize(*stack_b) > 0)
 		pa(stack_a, stack_b);
 }
 

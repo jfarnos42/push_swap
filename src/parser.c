@@ -6,11 +6,11 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 17:30:13 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/07/06 11:18:22 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:03:11 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 int	check_nonvalid_char(char *argv)
 {

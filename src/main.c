@@ -6,11 +6,11 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 22:59:45 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/07/08 10:36:06 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/14 14:56:30 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 static t_list	*generate_list(char **argv, t_list *stack_a)
 {
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 	t_list	*stack_b;
 
 	if (argc <= 1)
-		ft_error("Error\n");
+		return (0);
 	stack_b = NULL;
 	stack_a = NULL;
 	stack_a = generate_list(argv, stack_a);

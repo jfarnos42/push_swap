@@ -6,11 +6,11 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 12:19:59 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/07/12 19:46:33 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:03:51 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 int	is_sorted(t_list *stack_a)
 {
