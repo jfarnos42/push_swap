@@ -6,7 +6,7 @@
 /*   By: jfarnos- <jfarnos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 22:59:45 by jfarnos-          #+#    #+#             */
-/*   Updated: 2024/07/14 14:56:30 by jfarnos-         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:28:44 by jfarnos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	stack_a = generate_list(argv, stack_a);
 	push_swap(&stack_a, &stack_b);
-	//print_list(stack_a);
 	ft_lstclear(&stack_a, &free);
 	return (0);
 }
